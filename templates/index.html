@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AERD Database</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.13/lottie.min.js"></script>
+  <style>
+    .jumbotron {
+      /* height: 300px; */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-container">
+   <div id="lottie-animation"></div>
+   <div class="jumbotron text-center">
+    <h2>AERD Dataset</h2>
+    <p>Overlaying zip code data on Google Maps Air Quality Index data</p>
+  </div>
+</div>
+
+
+
+<div class="container-sm bg-info">
+  <div id="map"></div>
+  <div id="loading-indicator">
+    <p>Loading Air Quality Data...</p>
+  </div>
+  <!-- Load the custom JavaScript file -->
+  <script src="static/map.js"></script>
+  <!-- Load the Google Maps API script -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3s-iRsAWSHGOYcqB1LI0PQQifRHKeKE0&libraries=visualization&callback=initMap"></script>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <div>
+        <p>Created a <mark>fun</mark> <mark>little</mark>  <mark>visualization</mark> in my spare time to plot patient zip-codes on top of Google Pollution data to visualize environmental factors that can contribute to AERD clinical outcomes. Currently have mean pre-op SNOT scores of all patients in that zip-code listed when clicking on each map pin. Will add more data as time goes!</p>
+        </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+
+
+
+
+<script>
+    // Initialize Lottie animation
+  lottie.loadAnimation({
+      container: document.getElementById('lottie-animation'), // the DOM element that will contain the animation
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: '{{ url_for('static', filename='header-animation.json') }}' // the path to the animation json
+    });
+  </script>
+
+</body>
+</html>
