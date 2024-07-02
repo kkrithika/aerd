@@ -34,7 +34,13 @@ async function initMap() {
             });
 
             const infoWindow = new google.maps.InfoWindow({
-                content: `<b>${locations[key].Address}</b><p>Mean PreOp SNOT: ${locations[key]["Preop SNOT"]}</p>`
+                content: `<b>${locations[key].Address}</b>
+                          <p>Mean PreOp SNOT: ${locations[key]["Preop SNOT"]}</p>
+                          <p>Aspirin Dosage 2 Month: ${locations[key]["Aspirin Dosage 2 Month"]}</p>
+                          <p>Aspirin Dosage 4 Month: ${locations[key]["Aspirin Dosage 4 Month"]}</p>
+                          <p>Aspirin Dosage 7 Month: ${locations[key]["Aspirin Dosage 7 Month"]}</p>
+                          <p>Aspirin Dosage 13 Month: ${locations[key]["Aspirin Dosage 13 Month"]}</p>
+                          <p>Aspirin Dosage 25 Month: ${locations[key]["Aspirin Dosage 25 Month"]}</p>`
             });
 
             marker.addListener('click', () => {
